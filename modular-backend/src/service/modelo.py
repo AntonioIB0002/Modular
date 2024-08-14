@@ -4,14 +4,14 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 
 
-DATABASE_URL = "postgresql://us6aywspjna2d7hootm9:dssa41xvbdHEOwrc6TML@bwtfeqqk9qwynx1mgqxi-postgresql.services.clever-cloud.com:7195/bwtfeqqk9qwynx1mgqxi"
+DATABASE_URL = "postgresql://u63sroyguduv22w4kjgz:ij8UD7BiR9jOdqsmBHgR@bnkdry4qf8veynczig3o-postgresql.services.clever-cloud.com:7197/bnkdry4qf8veynczig3o"
 engine = create_engine(DATABASE_URL)
 try:
     with engine.connect() as connection:
-        result = connection.execute(text("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';"))
+        result = connection.execute(text("SELECT * FROM comentarios;"))
         print("Tablas en el esquema público:")
         for row in result:
-            print(row.table_name)
+            print(row.fecha_hora)
     print("Consulta ejecutada con éxito")
 except Exception as e:
     print(f"Error al ejecutar la consulta: {e}")

@@ -24,7 +24,7 @@ export class ExampleService extends SquidService {
   @webhook('example-service-webhook')
   handleExampleServiceWebhook(): object {
     const response = {
-      message: `Hello from 'example-service-webhook'`,
+      message: `Hello from 'example-service-webhook 4q4'`,
       date: new Date().toString(),
       appId: this.context.appId,
     };
