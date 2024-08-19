@@ -8,7 +8,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     options={{
       appId: 'xt01fcyhd56kellr99',
       region: 'us-east-1.aws', // example: 'us-east-1.aws'
-      environmentId: 'dev', // choose one of 'dev' or 'prod'
+      environmentId: 'prod', // choose one of 'dev' or 'prod'
       squidDeveloperId: 'pvtmwtlsa49ao8py3a',
     }}
   >

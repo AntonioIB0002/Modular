@@ -1,11 +1,15 @@
+import { useCollection,useQuery  } from '@squidcloud/react';
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+type User = { id: number; comentario: string; devise: string; fecha_hora: string; lenguaje: string; rating: number  };
+
 function App() {
   const [count, setCount] = useState(0)
-
+  const collection = useCollection<User>('comentarios');
+  const users = useQuery(collection.query());
   return (
     <>
       <div>
@@ -28,6 +32,13 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <ul className="read-the-docs">
+      {users.data.map((user) => (
+        <li key={user.data.id}>
+          {user.data.fecha_hora} - {user.data.comentario}
+        </li>
+      ))}
+    </ul>
     </>
   )
 }
