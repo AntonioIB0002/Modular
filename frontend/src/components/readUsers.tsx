@@ -3,7 +3,7 @@ import { useCollection, useQuery } from '@squidcloud/react';
 type User = { id: string; email: string; age: number };
 
 export default function ReadUsers() {
-  const collection = useCollection<User>('users');
+  const collection = useCollection<User>('users','modulardb_id');
   /** The list of users will be streamed to the client and kept up-to-date */
   const users = useQuery(collection.query());
 

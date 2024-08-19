@@ -4,7 +4,7 @@ import { useCollection } from '@squidcloud/react';
 type User = { id: string; email: string; age: number };
 
 export default function CreateUser() {
-  const userCollection = useCollection<User>('users');
+  const userCollection = useCollection<User>('users','modulardb_id');
   const insert = () => {
     const userId = crypto.randomUUID();
     const email = `${userId}@email.com`;
