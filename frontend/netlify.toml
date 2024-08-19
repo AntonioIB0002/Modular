@@ -4,7 +4,7 @@
     command = "npm run build"
 
 [build.environment]
-    SQUID_API_KEY = "f37974c2-9c49-4eaf-aa04-794a606bf285"
+    SQUID_API_KEY = "86057a2a-3dad-41bd-bda6-d1eaff00515b"
     SQUID_APP_ID = "xt01fcyhd56kellr99"
-    SQUID_ENVIRONMENT_ID = "dev"
+    SQUID_ENVIRONMENT_ID = "prod"
     SQUID_REGION = "us-east-1.aws"
