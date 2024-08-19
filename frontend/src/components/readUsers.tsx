@@ -1,17 +1,17 @@
 import { useCollection, useQuery } from '@squidcloud/react';
 
-type User = { id: string; email: string; age: number };
+type user = { id: number; comentario: string; devise: string; fecha_hora: Date; lenguaje: string; rating: number; };
 
 export default function ReadUsers() {
-  const collection = useCollection<User>('users','modulardb_id');
+  const collection = useCollection<user>('comentarios','modulardb_id');
   /** The list of users will be streamed to the client and kept up-to-date */
-  const users = useQuery(collection.query());
+  const comentarios = useQuery(collection.query());
 
   return (
     <ul style={{ listStyle: 'none', paddingLeft: '0px' }}>
-      {users.data.map((user) => (
+      {comentarios.data.map((user) => (
         <li key={user.data.id}>
-          {user.data.email} - {user.data.age}
+          {user.data.comentario}
         </li>
       ))}
     </ul>
