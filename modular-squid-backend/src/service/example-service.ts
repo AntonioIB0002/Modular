@@ -16,7 +16,7 @@ import { secureDatabase, SquidService, webhook } from '@squidcloud/backend';
  */
 export class ExampleService extends SquidService {
   // TODO: !!!IMPORTANT!!! - Replace this function with your own granular security rules
-  @secureDatabase('all', 'built_in_db')
+  @secureDatabase('all', 'modulardb_id')
   allowAllAccessToBuiltInDb(): boolean {
     return true;
   }
