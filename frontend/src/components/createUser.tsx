@@ -16,7 +16,7 @@ export default function CreateUser() {
   };
   return (
     <>
-      <button onClick={insert}>Insert new user</button>
+      <button onClick={insert}>Empiece la prueba aqui</button>
     </>
   );
 }
