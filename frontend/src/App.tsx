@@ -59,7 +59,7 @@ const App: React.FC = () => {
       {fileData.length > 0 && (
         <div style={{ marginTop: '20px' }}>
           <h3>Datos del Archivo:</h3>
-          <table border="1" cellPadding="10">
+          <table style = {{border:"1",padding:"10"}}>
             <thead>
               <tr>
                 {Object.keys(fileData[0]).map((key) => (
@@ -71,7 +71,11 @@ const App: React.FC = () => {
               {fileData.map((row, index) => (
                 <tr key={index}>
                   {Object.values(row).map((value, i) => (
-                    <td key={i}>{value}</td>
+                    <td key={i}>
+                      {typeof value === 'string' || typeof value === 'number' 
+                        ? value 
+                        : JSON.stringify(value)}
+                    </td>
                   ))}
                 </tr>
               ))}
