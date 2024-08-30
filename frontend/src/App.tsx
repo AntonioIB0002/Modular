@@ -4,16 +4,16 @@ import CreateUser from './components/createUser';
 import ReadUsers from './components/readUsers';
 import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
-import { Squid } from '@squidcloud/client';
+// import { Squid } from '@squidcloud/client';
 
 const App: React.FC = () => {
-  const [text, setText] = useState<string>('');
+  // const [text, setText] = useState<string>('');
   const [fileData, setFileData] = useState<any[]>([]);
-  const squid = new Squid({ appId: 'xt01fcyhd56kellr99', region: 'us-east-1.aws' });
-  const analizar = async () => {
-    const result = await squid.executeFunction('concat', 'string1', 'string2');
-    console.log(result);
-  };
+  // const squid = new Squid({ appId: 'xt01fcyhd56kellr99', region: 'us-east-1.aws' });
+  // const analizar = async () => {
+  //   const result = await squid.executeFunction('concat', 'string1', 'string2');
+  //   console.log(result);
+  // };
 
   const onDrop = (acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
@@ -42,7 +42,7 @@ const App: React.FC = () => {
       <CreateUser />
       <ReadUsers />
 
-      <div>
+      {/* <div>
         <input 
           type="text" 
           value={text} 
@@ -50,7 +50,7 @@ const App: React.FC = () => {
           placeholder="Ingresa el texto"
         />
         <button onClick={analizar}>Analizar</button>
-      </div>
+      </div> */}
 
       <div {...getRootProps()} style={{ border: '2px dashed #cccccc', padding: '20px', marginTop: '20px' }}>
         <input {...getInputProps()} />
