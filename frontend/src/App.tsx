@@ -4,14 +4,15 @@ import CreateUser from './components/createUser';
 import ReadUsers from './components/readUsers';
 import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
+import { Squid } from '@squidcloud/client';
 
 const App: React.FC = () => {
   const [text, setText] = useState<string>('');
   const [fileData, setFileData] = useState<any[]>([]);
-
-  const analizar = () => {
-    console.log("Texto a analizar:", text);
-    // Lógica de análisis aquí
+  const squid = new Squid({ appId: 'xt01fcyhd56kellr99', region: 'us-east-1.aws' });
+  const analizar = async () => {
+    const result = await squid.executeFunction('concat', 'string1', 'string2');
+    console.log(result);
   };
 
   const onDrop = (acceptedFiles: File[]) => {

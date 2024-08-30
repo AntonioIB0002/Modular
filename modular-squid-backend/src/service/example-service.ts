@@ -1,4 +1,4 @@
-import { secureDatabase, SquidService, webhook } from '@squidcloud/backend';
+import { secureDatabase, SquidService, webhook,executable } from '@squidcloud/backend';
 
 /**
  * Here you can define different backend functions that:
@@ -31,4 +31,10 @@ export class ExampleService extends SquidService {
     console.log(response); // This message will appear in the "Logs" tab of the Squid Console.
     return response;
   }
+
+  @executable()
+  concat(str1: string, str2: string): string {
+    return `${str1}${str2}`;
+  }
+
 }
