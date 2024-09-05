@@ -1,7 +1,7 @@
 [build]
     base = "frontend/"
     publish = "dist/"
-    command = "npm install"
+    command = "npm run build"
 
 [build.environment]
     SQUID_API_KEY = "86057a2a-3dad-41bd-bda6-d1eaff00515b"
