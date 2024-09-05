@@ -9,5 +9,6 @@ para usar el verificar el backend instalar en la carpeta de modular-squid-backen
 npm install
 npm install -g @squidcloud/cli  
 npm install @squidcloud/backend 
+npm i @xenova/transformers
 
 de haber vulnerabilidades correr npm audit fix
