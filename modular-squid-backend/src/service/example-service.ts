@@ -1,4 +1,5 @@
-import { secureDatabase, SquidService, webhook,executable } from '@squidcloud/backend';
+import { secureDatabase, SquidService,executable } from '@squidcloud/backend';
+// import { pipeline } from '@xenova/transformers';
 
 /**
  * Here you can define different backend functions that:
@@ -21,20 +22,5 @@ export class ExampleService extends SquidService {
     return true;
   }
 
-  @webhook('example-service-webhook')
-  handleExampleServiceWebhook(): object {
-    const response = {
-      message: `Hello from 'example-service-webhook'`,
-      date: new Date().toString(),
-      appId: this.context.appId,
-    };
-    console.log(response); // This message will appear in the "Logs" tab of the Squid Console.
-    return response;
-  }
-
-  @executable()
-  concat(str1: string, str2: string): string {
-    return `${str1}${str2}`;
-  }
 
 }

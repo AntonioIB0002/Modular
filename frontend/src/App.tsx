@@ -7,12 +7,13 @@ import * as XLSX from 'xlsx';
 // import { Squid } from '@squidcloud/client';
 
 const App: React.FC = () => {
-  // const [text, setText] = useState<string>('');
+  const [text, setText] = useState<string>('');
   const [fileData, setFileData] = useState<any[]>([]);
   // const squid = new Squid({ appId: 'xt01fcyhd56kellr99', region: 'us-east-1.aws' });
   // const analizar = async () => {
   //   const result = await squid.executeFunction('concat', 'string1', 'string2');
   //   console.log(result);
+  
   // };
 
   const onDrop = (acceptedFiles: File[]) => {
@@ -42,15 +43,15 @@ const App: React.FC = () => {
       <CreateUser />
       <ReadUsers />
 
-      {/* <div>
+      <div>
         <input 
           type="text" 
           value={text} 
           onChange={(e) => setText(e.target.value)} 
           placeholder="Ingresa el texto"
         />
-        <button onClick={analizar}>Analizar</button>
-      </div> */}
+        <button >Analizar</button>
+      </div>
 
       <div {...getRootProps()} style={{ border: '2px dashed #cccccc', padding: '20px', marginTop: '20px' }}>
         <input {...getInputProps()} />
