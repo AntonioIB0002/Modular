@@ -4,10 +4,11 @@ import CreateUser from './components/createUser';
 import ReadUsers from './components/readUsers';
 import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
+import axios from 'axios';
 // import { Squid } from '@squidcloud/client';
 
 const App: React.FC = () => {
-  const [text, setText] = useState<string>('');
+  // const [text, setText] = useState<string>('');
   const [fileData, setFileData] = useState<any[]>([]);
   // const squid = new Squid({ appId: 'xt01fcyhd56kellr99', region: 'us-east-1.aws' });
   // const analizar = async () => {
@@ -15,7 +16,19 @@ const App: React.FC = () => {
   //   console.log(result);
   
   // };
+    const [message, setMessage] = useState('');
+    const [response, setResponse] = useState('');
 
+  const handleSubmit = async () => {
+    try {
+      // Llama a la ruta '/test/submit' con el mensaje
+      const result = await axios.post('https://xt01fcyhd56kellr99-dev.us-east-1.aws.squid.cloud/openapi/test/submit', { message });
+      setResponse(result.data);
+    } catch (error) {
+      console.error('Error submitting data:', error);
+      setResponse('Error submitting data');
+    }
+  };
   const onDrop = (acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
     const reader = new FileReader();
@@ -46,11 +59,13 @@ const App: React.FC = () => {
       <div>
         <input 
           type="text" 
-          value={text} 
-          onChange={(e) => setText(e.target.value)} 
+          value={message} 
+          onChange={(e) => setMessage(e.target.value)}
           placeholder="Ingresa el texto"
         />
-        <button >Analizar</button>
+        <button onClick={handleSubmit}>Analizar</button>
+        <h2>Response:</h2>
+        <p>{response}</p>
       </div>
 
       <div {...getRootProps()} style={{ border: '2px dashed #cccccc', padding: '20px', marginTop: '20px' }}>

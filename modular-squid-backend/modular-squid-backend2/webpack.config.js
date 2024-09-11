@@ -3,6 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const NodeLoader = require('node-loader');
 
 module.exports = (env, argv) => {
   // argv.mode is set by webpack --mode=... option.
@@ -55,14 +56,16 @@ module.exports = (env, argv) => {
           test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
           type: 'asset',
         },
-
-        // Add your rules for custom modules here
-        // Learn more about loaders from https://webpack.js.org/loaders/
+        // Add rule for .node files
+        {
+          test: /\.node$/,
+          use: 'node-loader',
+        },
       ],
     },
     resolve: {
       plugins: [new TsconfigPathsPlugin({})],
-      extensions: ['.tsx', '.ts', '.jsx', '.js'],
+      extensions: ['.tsx', '.ts', '.jsx', '.js', '.node'],
     },
   };
 };

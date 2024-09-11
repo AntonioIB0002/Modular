@@ -4,6 +4,7 @@ npm install
 npm install @squidcloud/client
 npm install @squidcloud/react  
 npm install --save react-dropzone
+npm install axios
 
 para usar el backend instalar en la carpeta de modular-squid-backend
 npm install

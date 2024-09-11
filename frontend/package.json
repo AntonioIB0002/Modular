@@ -12,6 +12,7 @@
   "dependencies": {
     "@squidcloud/client": "^1.0.269",
     "@squidcloud/react": "^1.0.61",
+    "axios": "^1.7.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-dropzone": "^14.2.3"
