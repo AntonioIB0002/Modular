@@ -12,5 +12,5 @@ npm install -g @squidcloud/cli
 npm install @squidcloud/backend 
 npm install express ejs body-parser @xenova/transformers
 npm install --save-dev typescript @types/node @types/express ts-node
+npm install tsconfig-paths --save-dev
 
-de haber vulnerabilidades correr npm audit fix

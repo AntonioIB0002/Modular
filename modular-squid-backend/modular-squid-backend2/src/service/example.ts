@@ -11,7 +11,13 @@ interface InputData {
 // Initialize the express app and configure it
 const app = express();
 app.use(bodyParser.json()); // Middleware to parse JSON bodies
-
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+app.set('view engine', 'ejs')
+app.use(express.static('.'))
+app.use(bodyParser.urlencoded({ extended: true }))
 // Define the task and model for sentiment analysis
 const task = 'sentiment-analysis';
 const model = 'Xenova/distilbert-base-uncased-finetuned-sst-2-english';
@@ -39,7 +45,8 @@ export class ExampleServic extends SquidService {
       const { pipeline } = await import('@xenova/transformers');
       const sentimentPipeline = await pipeline(task, model);
       const result = await sentimentPipeline(message); // Analyzing sentiment of the message
-      console.log("Sentiment analysis result:", result);
+      const response = result[0]
+      console.log("Sentiment analysis result:", response);
 
       // Return the response with sentiment analysis result
       return this.createOpenApiResponse(`Sentiment: ${result}`, 200);
