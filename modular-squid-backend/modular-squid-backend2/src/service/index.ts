@@ -1,3 +1,3 @@
 // export * from './servidor';
 export * from './example-service';
-export * from './example';
+export * from '../Controllers/ExampleController';

@@ -8,7 +8,7 @@ const NodeLoader = require('node-loader');
 module.exports = (env, argv) => {
   // argv.mode is set by webpack --mode=... option.
   // Can be 'production', 'development' or undefined. All three result to a different bundle.
-  const isProduction = argv.mode === 'production';
+  const isProduction = argv.mode === 'development';
   return {
     entry: './src/index.ts',
     target: 'node',

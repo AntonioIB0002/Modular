@@ -1,7 +1,7 @@
 {
     "entryFile": "src/service/index.ts",
     "noImplicitAdditionalProperties": "throw-on-extras",
-    "controllerPathGlobs": ["src/**/*.ts"],
+    "controllerPathGlobs": ["src/**/*Controller.ts"],
     "spec": {
       "outputDirectory": "dist",
       "specVersion": 3
@@ -9,5 +9,6 @@
     "routes": {
       "routesDir": "dist",
       "middlewareTemplate": "./node_modules/@squidcloud/local-backend/dist/local-backend/openapi-template.hbs"
+
     }
   }

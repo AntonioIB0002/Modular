@@ -22,7 +22,7 @@ const App: React.FC = () => {
   const handleSubmit = async () => {
     try {
       // Llama a la ruta '/test/submit' con el mensaje
-      const result = await axios.post('https://xt01fcyhd56kellr99-dev.us-east-1.aws.squid.cloud/openapi/test/submit', { message });
+      const result = await axios.post('https://xt01fcyhd56kellr99-dev.us-east-1.aws.squid.cloud/openapi/example/submit', { message });
       setResponse(result.data);
     } catch (error) {
       console.error('Error submitting data:', error);
