@@ -23,7 +23,7 @@ const App: React.FC = () => {
       event.preventDefault();
   
       // Realizar la solicitud POST al servidor Express
-      fetch('https://73d6-187-189-208-174.ngrok-free.app/message', {
+      fetch('https://mature-visually-mole.ngrok-free.app/message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
