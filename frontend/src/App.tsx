@@ -9,6 +9,35 @@ const App: React.FC = () => {
   const [fileData, setFileData] = useState<any[]>([]);
 
   const onDrop = async (acceptedFiles: File[]) => {
+  // const squid = new Squid({ appId: 'xt01fcyhd56kellr99', region: 'us-east-1.aws' });
+  // const analizar = async () => {
+  //   const result = await squid.executeFunction('concat', 'string1', 'string2');
+  //   console.log(result);
+  
+  // };
+    const [message, setMessage] = useState('');
+    const [response, setResponse] = useState('');
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+  
+      // Realizar la solicitud POST al servidor Express
+      fetch('https://mature-visually-mole.ngrok-free.app/message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message }), // Enviar el mensaje al backend
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('Response from server:', data);
+          setResponse(`Sentiment Analysis: ${JSON.stringify(data.sentiment)}`);
+        })
+        .catch((error) => console.error('Error:', error));
+    };
+  
+  const onDrop = (acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
     
     // Imprimir el nombre y la extensión del archivo en consola
