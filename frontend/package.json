@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@squidcloud/client": "^1.0.269",
-    "@squidcloud/react": "^1.0.61",
+    "@squidcloud/client": "^1.0.278",
+    "@squidcloud/react": "^1.0.66",
     "axios": "^1.7.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

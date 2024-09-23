@@ -1,7 +1,7 @@
 Dependencias necesarias
 para correr local instalar en la carpeta de frontend/ las siguientes dependencias:
 npm install
-npm install @squidcloud/client
+npm install @squidcloud/client @squidcloud/react --save react-dropzone axios xlsx
 npm install @squidcloud/react  
 npm install --save react-dropzone
 npm install axios
