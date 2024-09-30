@@ -43,7 +43,7 @@ def sentimentAnalyst(data):
         lista_internet.append(resultado_internet)
 
     # Agregar la columna de resultados al DataFrame
-    df['Percepcion Internet'] = lista_internet
+    df['Analisis del texto'] = lista_internet
 
     # Convertir el DataFrame a un JSON
     result_json = df.to_dict(orient='records')
