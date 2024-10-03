@@ -60,7 +60,7 @@ const App: React.FC = () => {
   
   return (
     <>
-      <h1>Bienvenidos a FeelFinder</h1>
+      <h1>Bienvenidos a Feeling-Person</h1>
       <CreateUser />
       <ReadUsers />
 
