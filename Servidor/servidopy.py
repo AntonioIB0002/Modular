@@ -3,20 +3,26 @@ from flask_cors import CORS
 from transformers import pipeline
 import pandas as pd
 import json
-
+from adaline import TextClassifier
 app = Flask(__name__)
 CORS(app)
-
+classifier = TextClassifier()
+classifier.load_model()
 # Inicializar el pipeline de análisis de sentimiento
 resena = pipeline('sentiment-analysis', model="nlptown/bert-base-multilingual-uncased-sentiment")
 def singlecomment(comentario):
-    resultado = ""
+    resultado = []
     if comentario == "":
-        resultado= "INDIFERENTE"
+        resultado.append("INDIFERENTE")
+        resultado.append("Sin Analsis")
     else:
-        resultado = resena(str(comentario))
-        resultado = resultado[0]['label']
+        res = resena(str(comentario))
+        resultado.append(res[0]['label'])
 
+        resultado.append(classifier.classify(str(comentario)))
+        print(resultado)
+        print(resultado[0])
+        print(resultado[1])
     return resultado
 def sentimentAnalyst(data):
     # Convertir JSON a DataFrame
@@ -31,20 +37,23 @@ def sentimentAnalyst(data):
 
     # Listas para almacenar resultados
     lista_internet = []
+    lista_incidencia = []
 
     # Iterar sobre cada comentario
     for comentario in review_text_column:
         if str(comentario) == "":
             resultado_internet = "INDIFERENTE"
+            resultado_incidencia = "Sin Analisis"
         else:
             resultado_internet = resena(str(comentario))
             resultado_internet = resultado_internet[0]['label']
-
+            resultado_incidencia = classifier.classify(str(comentario))
         lista_internet.append(resultado_internet)
+        lista_incidencia.append(resultado_incidencia)
 
     # Agregar la columna de resultados al DataFrame
     df['Analisis del texto'] = lista_internet
-
+    df['Comentario-Incidencia'] = lista_incidencia
     # Convertir el DataFrame a un JSON
     result_json = df.to_dict(orient='records')
 

@@ -3,7 +3,8 @@ import { useState } from 'react';
 
 type Comentarios = { 
   comentario: string; 
-  comentario_analizado?: string; // Agregar el tipo para el comentario analizado
+  comentario_analizado?: string; 
+  comentario_incidencia?: string; // Agregar el tipo para la incidencia
 };
 
 export default function CreateUser() {
@@ -32,8 +33,12 @@ export default function CreateUser() {
       const result = await response.json();
       console.log('Resultado del análisis:', result);
 
-      // Actualizar el documento con el resultado del análisis
-      await docRef.update({ comentario_analizado: result.result });
+      
+      await docRef.update({ 
+        comentario_analizado: result.result[0], 
+        comentario_incidencia: result.result[1] 
+      });
+      
 
     } catch (error) {
       console.error('Error al enviar el comentario:', error);

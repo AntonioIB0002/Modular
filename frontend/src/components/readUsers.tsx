@@ -8,6 +8,7 @@ type user = {
   lenguaje: string; 
   rating: number; 
   comentario_analizado: string;
+  comentario_incidencia: string;
 };
 
 export default function ReadUsers() {
@@ -21,6 +22,7 @@ export default function ReadUsers() {
         <tr>
           <th style={{ border: '1px solid black', padding: '8px' }}>Comentario</th>
           <th style={{ border: '1px solid black', padding: '8px' }}>Comentario Analizado</th>
+          <th style={{ border: '1px solid black', padding: '8px' }}>Comentario/Incidencia</th>
         </tr>
       </thead>
       <tbody>
@@ -31,6 +33,9 @@ export default function ReadUsers() {
             </td>
             <td style={{ border: '1px solid black', padding: '8px' }}>
               {user.data.comentario_analizado || 'Sin análisis'}
+            </td>
+            <td style={{ border: '1px solid black', padding: '8px'}}>
+              {user.data.comentario_incidencia || 'Sin análisis'}
             </td>
           </tr>
         ))}
